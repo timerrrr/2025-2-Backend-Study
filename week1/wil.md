@@ -89,9 +89,9 @@
 
   + 상품 정보 등록
 
-  HTTP Method: POST
+    HTTP Method: POST
 
-  URI: /items
+    URI: /items
 
   + 상품 목록 조회
 
@@ -122,9 +122,9 @@
 
   + 주문 정보 생성
 
-  HTTP Method: POST
+    HTTP Method: POST
 
-  URI: /orders
+    URI: /orders
 
   + 주문 목록 조회
 
