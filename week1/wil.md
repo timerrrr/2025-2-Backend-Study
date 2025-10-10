@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 # 1.1주차 학습내용
+=======
+# 1. 1주차 학습내용
+>>>>>>> 5f00ec189b35d4fdfb1f5e9e30e0160583602c69
 
   ## 1.1 웹
 
@@ -89,9 +93,15 @@
 
   + 상품 정보 등록
 
+<<<<<<< HEAD
   HTTP Method: POST
 
   URI: /items
+=======
+    HTTP Method: POST
+
+    URI: /items
+>>>>>>> 5f00ec189b35d4fdfb1f5e9e30e0160583602c69
 
   + 상품 목록 조회
 
@@ -122,9 +132,15 @@
 
   + 주문 정보 생성
 
+<<<<<<< HEAD
   HTTP Method: POST
 
   URI: /orders
+=======
+    HTTP Method: POST
+
+    URI: /orders
+>>>>>>> 5f00ec189b35d4fdfb1f5e9e30e0160583602c69
 
   + 주문 목록 조회
 
@@ -143,8 +159,12 @@
      HTTP Method: DELETE
 
      URI: /orders/{orderId}
+<<<<<<< HEAD
 
 
   
 
+=======
+    
+>>>>>>> 5f00ec189b35d4fdfb1f5e9e30e0160583602c69
        
