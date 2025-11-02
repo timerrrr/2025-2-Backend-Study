@@ -2,12 +2,14 @@ package com.example.shop.member;
 
 import java.util.List;
 
+
 import org.springframework.stereotype.Service;
 
 import com.example.shop.member.dto.MemberCreateRequest;
 import com.example.shop.member.dto.MemberUpdateRequest;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @RequiredArgsConstructor
@@ -15,7 +17,7 @@ public class MemberService {
 
     private final MemberRepository memberRepository;
 
-    //@Transactional
+    @Transactional
     public Long createMember(MemberCreateRequest request){
         Member existingMember = memberRepository.findByLoginId(request.getLoginId());
         if(existingMember != null){
@@ -34,10 +36,12 @@ public class MemberService {
         return member.getId();
     }
 
+    @Transactional(readOnly = true)
     public List<Member> getAllMembers(){
         return memberRepository.findAll();
     }
 
+    @Transactional(readOnly = true)
     public Member getMemberById(Long id){
         Member member = memberRepository.findById(id);
 
@@ -48,6 +52,7 @@ public class MemberService {
         return member;
     }
 
+    @Transactional
     public void updateMember(Long id, MemberUpdateRequest request){
         Member member = memberRepository.findById(id);
 
@@ -58,6 +63,7 @@ public class MemberService {
         member.updateInfo(request.getPassword(), request.getPhoneNumber(), request.getAddress());
     }
 
+    @Transactional
     public void deleteMember(Long id){
         Member member = memberRepository.findById(id);
 

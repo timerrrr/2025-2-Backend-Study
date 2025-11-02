@@ -2,12 +2,14 @@ package com.example.shop.order;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @RequiredArgsConstructor
 public class OrderService {
     private final OrderRepository orderRepository;
 
+    @Transactional
     public Long createOrder(OrderCreateRequest request){
         Order order = new Order(
                 request.getMemberId(),
@@ -18,10 +20,12 @@ public class OrderService {
         return order.getId();
     }
 
+    @Transactional(readOnly = true)
     public List<Order> getAllOrders(){
         return orderRepository.findAll();
     }
 
+    @Transactional(readOnly = true)
     public Order getOrderById(Long id){
         Order order = orderRepository.findById(id);
         if(order == null){
@@ -30,6 +34,7 @@ public class OrderService {
         return order;
     }
 
+    @Transactional
     public void deleteOrder(Long id){
         Order order = orderRepository.findById(id);
         if(order == null){
