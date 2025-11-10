@@ -4,6 +4,8 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public class ProductRepository {
 
@@ -23,7 +25,7 @@ public class ProductRepository {
     }
 
     public void deleteById(Long id){
-        Product product = em.find(Prodcut.class, id);
+        Product product = em.find(Product.class, id);
         em.remove(product);
 
     }

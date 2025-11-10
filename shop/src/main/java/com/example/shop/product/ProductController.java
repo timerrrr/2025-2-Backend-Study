@@ -1,10 +1,13 @@
 package com.example.shop.product;
 
+import com.example.shop.product.dto.ProductCreateRequest;
+import com.example.shop.product.dto.ProductUpdateRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
+import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
@@ -24,7 +27,7 @@ public class ProductController {
         return ResponseEntity.ok(products);
     }
 
-    @GetMapping{"/{itemId}"}
+    @GetMapping("/{itemId}")
     public ResponseEntity<Product> getProduct(@PathVariable Long itemId){
         Product product = productService.getProductById(itemId);
         return ResponseEntity.ok(product);

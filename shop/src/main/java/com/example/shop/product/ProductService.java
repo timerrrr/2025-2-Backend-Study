@@ -1,8 +1,12 @@
 package com.example.shop.product;
 
+import com.example.shop.product.dto.ProductCreateRequest;
+import com.example.shop.product.dto.ProductUpdateRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -28,7 +32,7 @@ public class ProductService {
 
     @Transactional(readOnly = true)
     public Product getProductById(Long id){
-        Product product = productRepository.findBtId(id);
+        Product product = productRepository.findById(id);
         if(product == null){
             throw new RuntimeException("상품을 찾을 수 없습니다.");
         }

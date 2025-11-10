@@ -2,7 +2,6 @@ package com.example.shop.order;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
-import jakarta.persistence.criteria.Order;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
