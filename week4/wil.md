@@ -57,17 +57,17 @@
 
     ### DB ERD
     
-     ![DB ERD](./h2_table.jpg)
+     ![DB ERD](h2_table.jpg)
 
     ### h2 table
 
-     ![order 테이블](./h2_table.jpg)
+     ![order 테이블](h2_table.jpg)
 
-     ![product 테이블](./h2_table_2.jpg)
+     ![product 테이블](h2_table_2.jpg)
       
     ### postman
 
-      ![성공](./api_succeed.jpg)
+      ![성공](api_succeed.jpg)
 
-      ![실패](./api_failure.jpg)
+      ![실패](api_failure.jpg)
 
