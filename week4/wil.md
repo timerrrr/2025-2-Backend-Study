@@ -57,7 +57,7 @@
 
     ### DB ERD
     
-     ![DB ERD](h2_table.jpg)
+     ![DB ERD](db.erd.jpg)
 
     ### h2 table
 
