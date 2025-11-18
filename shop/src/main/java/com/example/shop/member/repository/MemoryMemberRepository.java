@@ -1,6 +1,6 @@
-package com.example.shop.member;
+package com.example.shop.member.repository;
 
-import org.springframework.beans.factory.annotation.Qualifier;
+import com.example.shop.member.Member;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;

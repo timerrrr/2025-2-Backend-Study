@@ -49,4 +49,8 @@ public class Member {
             this.address = address;
         }
     }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 }

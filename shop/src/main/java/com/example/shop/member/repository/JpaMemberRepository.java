@@ -1,8 +1,8 @@
-package com.example.shop.member;
+package com.example.shop.member.repository;
 
+import com.example.shop.member.Member;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Repository;
 
