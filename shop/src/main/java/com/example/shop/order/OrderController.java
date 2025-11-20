@@ -2,6 +2,7 @@ package com.example.shop.order;
 
 import com.example.shop.order.dto.OrderCreateRequest;
 import com.example.shop.order.service.OrderService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -16,7 +17,7 @@ public class OrderController {
     private final OrderService orderService;
 
     @PostMapping
-    public ResponseEntity<Void> createOrder(@RequestBody OrderCreateRequest request){
+    public ResponseEntity<Void> createOrder(@RequestBody @Valid OrderCreateRequest request){
         Long orderId = orderService.createOrder(request);
         return ResponseEntity.created(URI.create("/orders/"+orderId)).build();
     }

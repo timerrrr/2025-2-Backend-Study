@@ -3,6 +3,7 @@ package com.example.shop.product;
 import com.example.shop.product.dto.ProductCreateRequest;
 import com.example.shop.product.dto.ProductUpdateRequest;
 import com.example.shop.product.service.ProductService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -17,7 +18,7 @@ public class ProductController {
     private final ProductService productService;
 
     @PostMapping
-    public ResponseEntity<Void> createProduct(@RequestBody ProductCreateRequest request) {
+    public ResponseEntity<Void> createProduct(@RequestBody @Valid ProductCreateRequest request) {
         Long productId = productService.createProduct(request);
         return ResponseEntity.created(URI.create("/items/" + productId)).build();
     }
@@ -37,7 +38,7 @@ public class ProductController {
     @PatchMapping("/{itemId}")
     public ResponseEntity<Void> updateProduct(
             @PathVariable Long itemId,
-            @RequestBody ProductUpdateRequest request){
+            @RequestBody @Valid ProductUpdateRequest request){
         productService.updateProduct(itemId, request);
         return ResponseEntity.noContent().build();
     }

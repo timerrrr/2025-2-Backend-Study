@@ -15,7 +15,7 @@ public class Member {
     @Column(name = "member_id")
     private Long id;
 
-    @Column(name = "member_login_id", length = 50)
+    @Column(name = "member_login_id", length = 20)
     private String loginId;
 
     @Column(name = "member_pw", length = 100)
@@ -39,15 +39,9 @@ public class Member {
     }
 
     public void updateInfo(String password, String phoneNumber, String address) {
-        if (password != null) {
-            this.password = password;
-        }
-        if (phoneNumber != null) {
-            this.phoneNumber = phoneNumber;
-        }
-        if (address != null) {
-            this.address = address;
-        }
+        this.password = password;
+        this.phoneNumber = phoneNumber;
+        this.address = address;
     }
 
     public void setId(Long id) {

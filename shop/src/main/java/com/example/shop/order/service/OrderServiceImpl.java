@@ -1,5 +1,7 @@
 package com.example.shop.order.service;
 
+import com.example.shop.common.exception.NotFoundException;
+import com.example.shop.common.message.ErrorMessage;
 import com.example.shop.member.Member;
 import com.example.shop.member.repository.MemberRepository;
 import com.example.shop.order.Order;
@@ -29,7 +31,7 @@ public class OrderServiceImpl implements OrderService {
 
         Member member = memberRepository.findById(request.getMemberId());
         if(member == null){
-            throw new RuntimeException("회원을 찾을 수 없습니다.");
+            throw new NotFoundException(ErrorMessage.MEMBER_NOT_FOUND);
         }
 
         List<OrderItem> orderItems = new ArrayList<>();
@@ -37,7 +39,7 @@ public class OrderServiceImpl implements OrderService {
         for(OrderItemRequest itemRequest : request.getOrderItems()){
             Product product = productRepository.findById(itemRequest.getProductId());
             if(product == null){
-                throw new RuntimeException("상품을 찾을 수 없습니다.");
+                throw new NotFoundException(ErrorMessage.PRODUCT_NOT_FOUND);
             }
 
             OrderItem orderItem = OrderItem.createOrderItem(
@@ -69,7 +71,7 @@ public class OrderServiceImpl implements OrderService {
     public Order getOrderById(Long id){
         Order order = orderRepository.findById(id);
         if(order == null){
-            throw new RuntimeException("주문을 찾을 수 없습니다.");
+            throw new NotFoundException(ErrorMessage.ORDER_NOT_FOUND);
         }
         return order;
     }
@@ -79,7 +81,7 @@ public class OrderServiceImpl implements OrderService {
     public void deleteOrder(Long id){
         Order order = orderRepository.findById(id);
         if(order == null){
-            throw new RuntimeException("주문을 찾을 수 없습니다.");
+            throw new NotFoundException(ErrorMessage.ORDER_NOT_FOUND);
         }
         orderRepository.deleteById(id);
     }

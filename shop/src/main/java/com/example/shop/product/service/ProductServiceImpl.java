@@ -1,5 +1,7 @@
 package com.example.shop.product.service;
 
+import com.example.shop.common.exception.NotFoundException;
+import com.example.shop.common.message.ErrorMessage;
 import com.example.shop.product.Product;
 import com.example.shop.product.dto.ProductCreateRequest;
 import com.example.shop.product.dto.ProductUpdateRequest;
@@ -39,7 +41,7 @@ public class ProductServiceImpl implements ProductService {
     public Product getProductById(Long id){
         Product product = productRepository.findById(id);
         if(product == null){
-            throw new RuntimeException("상품을 찾을 수 없습니다.");
+            throw new NotFoundException(ErrorMessage.PRODUCT_NOT_FOUND);
         }
         return product;
     }
@@ -49,7 +51,7 @@ public class ProductServiceImpl implements ProductService {
     public void updateProduct(Long id, ProductUpdateRequest request){
         Product product = productRepository.findById(id);
         if(product == null){
-            throw new RuntimeException("상품을 찾을 수 없습니다.");
+            throw new NotFoundException(ErrorMessage.PRODUCT_NOT_FOUND);
         }
         product.updateInfo(request.getName(), request.getPrice(), request.getStock());
     }
@@ -59,7 +61,7 @@ public class ProductServiceImpl implements ProductService {
     public void deleteProduct(Long id){
         Product product = productRepository.findById(id);
         if(product == null){
-            throw new RuntimeException("상품을 찾을 수 없습니다.");
+            throw new NotFoundException(ErrorMessage.PRODUCT_NOT_FOUND);
         }
         productRepository.deleteById(id);
     }
